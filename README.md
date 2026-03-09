@@ -20,6 +20,7 @@ No other third-party UI or utility libraries were used. The task scope is well c
 
 ## What I'd Improve With More Time
 
+- **Splash Screen** — Add a splash screen that would be displayed when the app is loading.
 - **Swipe-to-delete** — More natural on mobile than a visible delete button.
 - **Edit task in-place** — Tap a task title to rename it inline.
 - **Reorder via drag** — Allow manual prioritisation with a drag handle.
