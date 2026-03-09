@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
-import { View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 interface Props {
   onAdd: (title: string) => void;
 }
 
-export function AddTaskInput({ onAdd }: Props) {
-  const [value, setValue] = useState('');
+export const AddTaskInput = ({ onAdd }: Props) => {
+  const [value, setValue] = useState("");
   const [error, setError] = useState(false);
 
   const handleSubmit = () => {
@@ -15,7 +21,7 @@ export function AddTaskInput({ onAdd }: Props) {
       return;
     }
     onAdd(value);
-    setValue('');
+    setValue("");
     setError(false);
   };
 
@@ -29,57 +35,63 @@ export function AddTaskInput({ onAdd }: Props) {
             setValue(text);
             if (error && text.trim()) setError(false);
           }}
-          placeholder="Add a new task…"
-          placeholderTextColor="#9CA3AF"
+          placeholder='Add a new task…'
+          placeholderTextColor='#9CA3AF'
           onSubmitEditing={handleSubmit}
-          returnKeyType="done"
+          returnKeyType='done'
           maxLength={200}
         />
-        <TouchableOpacity onPress={handleSubmit} style={styles.addBtn} activeOpacity={0.8}>
+        <TouchableOpacity
+          onPress={handleSubmit}
+          style={styles.addBtn}
+          activeOpacity={0.8}
+        >
           <Text style={styles.addBtnText}>Add</Text>
         </TouchableOpacity>
       </View>
-      {error && <Text style={styles.errorText}>Task name cannot be empty.</Text>}
+      {error && (
+        <Text style={styles.errorText}>Task name cannot be empty.</Text>
+      )}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   wrapper: {
     marginBottom: 20,
   },
   inputRow: {
-    flexDirection: 'row',
-    backgroundColor: '#fff',
+    flexDirection: "row",
+    backgroundColor: "#fff",
     borderRadius: 12,
     borderWidth: 1.5,
-    borderColor: '#E5E7EB',
-    overflow: 'hidden',
+    borderColor: "#E5E7EB",
+    overflow: "hidden",
   },
   inputRowError: {
-    borderColor: '#F87171',
+    borderColor: "#F87171",
   },
   input: {
     flex: 1,
     paddingHorizontal: 14,
     paddingVertical: 13,
     fontSize: 15,
-    color: '#111827',
+    color: "#111827",
   },
   addBtn: {
-    backgroundColor: '#6366F1',
+    backgroundColor: "#6366F1",
     paddingHorizontal: 20,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   addBtnText: {
-    color: '#fff',
-    fontWeight: '700',
+    color: "#fff",
+    fontWeight: "700",
     fontSize: 14,
   },
   errorText: {
     marginTop: 6,
     marginLeft: 4,
     fontSize: 12,
-    color: '#EF4444',
+    color: "#EF4444",
   },
 });

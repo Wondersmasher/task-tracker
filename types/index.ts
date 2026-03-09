@@ -1,8 +1,8 @@
-export type FilterType = 'all' | 'active' | 'completed';
+export type FilterType = "all" | "active" | "completed";
 
-export interface Task {
+export type Task = {
   id: string;
   title: string;
   completed: boolean;
   createdAt: number;
-}
+};

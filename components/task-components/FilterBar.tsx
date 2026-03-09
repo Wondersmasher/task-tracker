@@ -1,6 +1,6 @@
-import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { FilterType } from '../types';
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { FilterType } from "../../types";
 
 interface Props {
   filter: FilterType;
@@ -9,12 +9,12 @@ interface Props {
 }
 
 const FILTERS: { key: FilterType; label: string }[] = [
-  { key: 'all', label: 'All' },
-  { key: 'active', label: 'Active' },
-  { key: 'completed', label: 'Completed' },
+  { key: "all", label: "All" },
+  { key: "active", label: "Active" },
+  { key: "completed", label: "Completed" },
 ];
 
-export function FilterBar({ filter, counts, onSelect }: Props) {
+export const FilterBar = ({ filter, counts, onSelect }: Props) => {
   return (
     <View style={styles.container}>
       {FILTERS.map(({ key, label }) => (
@@ -28,7 +28,12 @@ export function FilterBar({ filter, counts, onSelect }: Props) {
             {label}
           </Text>
           <View style={[styles.badge, filter === key && styles.badgeActive]}>
-            <Text style={[styles.badgeText, filter === key && styles.badgeTextActive]}>
+            <Text
+              style={[
+                styles.badgeText,
+                filter === key && styles.badgeTextActive,
+              ]}
+            >
               {counts[key]}
             </Text>
           </View>
@@ -36,28 +41,28 @@ export function FilterBar({ filter, counts, onSelect }: Props) {
       ))}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    backgroundColor: '#F3F4F6',
+    flexDirection: "row",
+    backgroundColor: "#F3F4F6",
     borderRadius: 10,
     padding: 3,
     marginBottom: 20,
   },
   tab: {
     flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     paddingVertical: 8,
     borderRadius: 8,
     gap: 5,
   },
   tabActive: {
-    backgroundColor: '#fff',
-    shadowColor: '#000',
+    backgroundColor: "#fff",
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.08,
     shadowRadius: 2,
@@ -65,28 +70,28 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 13,
-    fontWeight: '500',
-    color: '#6B7280',
+    fontWeight: "500",
+    color: "#6B7280",
   },
   labelActive: {
-    color: '#111827',
-    fontWeight: '600',
+    color: "#111827",
+    fontWeight: "600",
   },
   badge: {
-    backgroundColor: '#E5E7EB',
+    backgroundColor: "#E5E7EB",
     borderRadius: 10,
     paddingHorizontal: 6,
     paddingVertical: 1,
   },
   badgeActive: {
-    backgroundColor: '#EEF2FF',
+    backgroundColor: "#EEF2FF",
   },
   badgeText: {
     fontSize: 11,
-    fontWeight: '600',
-    color: '#9CA3AF',
+    fontWeight: "600",
+    color: "#9CA3AF",
   },
   badgeTextActive: {
-    color: '#6366F1',
+    color: "#6366F1",
   },
 });

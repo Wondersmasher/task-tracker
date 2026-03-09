@@ -1,3 +1,5 @@
+import { AddTaskInput, EmptyState, FilterBar, TaskItem } from "@/components";
+import { useTasks } from "@/hooks/useTasks";
 import React from "react";
 import {
   ActivityIndicator,
@@ -10,11 +12,6 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { AddTaskInput } from "../../components/AddTaskInput";
-import { EmptyState } from "../../components/EmptyState";
-import { FilterBar } from "../../components/FilterBar";
-import { TaskItem } from "../../components/TaskItem";
-import { useTasks } from "../../hooks/useTasks";
 
 export default function App() {
   const {
