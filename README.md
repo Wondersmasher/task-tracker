@@ -13,9 +13,9 @@ Scan the QR code with Expo Go (iOS/Android), or press `i` for iOS simulator / `a
 
 ## Libraries
 
- `@react-native-async-storage/async-storage`: The standard, well-maintained solution for local key-value persistence in React Native. Other dependencies are from spinning up a new project using `npx create-expo-app@latest`
+ `@react-native-async-storage/async-storage`: This package is used for persisting state in React Native. Other dependencies are from spinning up a new project using `npx create-expo-app@latest`
 
-No other third-party UI or utility libraries were used. The task scope is well covered by React Native's built in components.
+No other third-party UI or utility libraries were used as the scope of the task is well covered by React Native's built in components.
 
 
 ## What I'd Improve With More Time
